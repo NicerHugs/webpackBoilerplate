@@ -20,7 +20,7 @@ module.exports = {
         test: /\.scss$/,
 
         // when matching files are imported, don't turn them into a js module, but instead, extract all the files contents into a single mass of text (that's what the plugin does, hence its name). The arguments to the plugin.extract fn tell it which loaders to run the file through first (in this case, we are processing sass into css then into the style loader)
-        loader: ExtractTextPlugin.extract("style", "css!sass")
+        loader: ExtractTextPlugin.extract("style", "css?sourceMap!sass?sourceMap")
       },
       {
         // configure our javascript. watch specifically for any imports that have the file extension .js or .jsx
