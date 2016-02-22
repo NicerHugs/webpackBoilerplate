@@ -4,6 +4,7 @@ With the following features:
 
 * Sass compiled to css in an external stylesheet
 * ES2015
+* React and ReactDOM
 * An app directory for development and a dist folder for builds
 * Nothing else
 
