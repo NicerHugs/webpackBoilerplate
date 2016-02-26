@@ -40,6 +40,12 @@ module.exports = {
   // turn on the source map, for easier debugging
   devtool: "source-map",
 
+  // turn on history fallback api in dev server, so that the route changes are picked up
+  devServer: {
+    port: 8080,
+    historyApiFallback: true
+  },
+
   plugins: [
     // create an instance of the extract-text-webpack-plugin which will create the style.css file. this tells the style loader (above) where to put that text it extracted from the scss files after it finishes processing it.
     new ExtractTextPlugin("style.css"),
