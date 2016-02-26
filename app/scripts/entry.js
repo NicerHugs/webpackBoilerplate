@@ -2,7 +2,12 @@
 import './../styles/main.scss';
 
 // import a module from another file.
-import tiy from './app.js';
+import React from 'react';
+import {render} from 'react-dom';
 
-// Looks like the imported module was a function, because here we're executing it!
-tiy();
+import App from './app.js';
+
+render(
+  <App/>,
+  document.getElementById('app')
+);

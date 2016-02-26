@@ -1,5 +1,6 @@
 // import the text plugin used to handle the stylesheets
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var path = require("path");
 
 module.exports = {
   // specify the path for the entrypoint into our app.
@@ -25,6 +26,11 @@ module.exports = {
       {
         // configure our javascript. watch specifically for any imports that have the file extension .js or .jsx
         test: /\.jsx?/,
+
+        include: [
+          path.resolve("./app/scripts")
+        ],
+        exclude: /node_modules/,
 
         // when matching files are imported, run them through the babel loader to process them. Babel is being configured in the .babelrc file (also in this root directory) to include the preset for es2015, giving this app es2015 capabilities!
         loader: "babel"
