@@ -25,7 +25,8 @@ module.exports = {
       {
         // configure our javascript. watch specifically for any imports that have the file extension .js or .jsx
         test: /\.jsx?/,
-
+        //don't try to compile node_modules into memory!
+        exclude: /node_modules/,
         // when matching files are imported, run them through the babel loader to process them. Babel is being configured in the .babelrc file (also in this root directory) to include the preset for es2015, giving this app es2015 capabilities!
         loader: "babel"
       }
