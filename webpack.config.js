@@ -1,5 +1,6 @@
 // import the text plugin used to handle the stylesheets
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   // specify the path for the entrypoint into our app.
@@ -38,5 +39,8 @@ module.exports = {
   plugins: [
     // create an instance of the extract-text-webpack-plugin which will create the style.css file. this tells the style loader (above) where to put that text it extracted from the scss files after it finishes processing it.
     new ExtractTextPlugin("style.css"),
+    new HtmlWebpackPlugin({
+      template: 'index.html'
+    })
   ]
 }
