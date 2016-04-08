@@ -5,6 +5,7 @@ With the following features:
 * Sass compiled to css in an external stylesheet
 * ES2015
 * An app directory for development and a dist folder for builds
+* Static compilation of jpg and png images
 * Nothing else
 
 ### To use this on a new project

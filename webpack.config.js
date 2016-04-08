@@ -30,7 +30,9 @@ module.exports = {
         exclude: /node_modules/,
         // when matching files are imported, run them through the babel loader to process them. Babel is being configured in the .babelrc file (also in this root directory) to include the preset for es2015, giving this app es2015 capabilities!
         loader: "babel"
-      }
+      }, 
+      { test: /\.png$/, loader: "url-loader?limit=100000" },
+      { test: /\.jpg$/, loader: "file-loader" }
     ]
   },
   // turn on the source map, for easier debugging
