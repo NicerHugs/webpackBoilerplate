@@ -1,6 +1,7 @@
 // import the text plugin used to handle the stylesheets
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require("path");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   // specify the path for the entrypoint into our app.
@@ -26,15 +27,16 @@ module.exports = {
       {
         // configure our javascript. watch specifically for any imports that have the file extension .js or .jsx
         test: /\.jsx?/,
-
         include: [
           path.resolve("./app/scripts")
         ],
+        //don't run node_modules through babel!
         exclude: /node_modules/,
-
         // when matching files are imported, run them through the babel loader to process them. Babel is being configured in the .babelrc file (also in this root directory) to include the preset for es2015, giving this app es2015 capabilities!
         loader: "babel"
-      }
+      },
+      { test: /\.png$/, loader: "url-loader?limit=100000" },
+      { test: /\.jpg$/, loader: "file-loader" }
     ]
   },
   // turn on the source map, for easier debugging
@@ -43,5 +45,8 @@ module.exports = {
   plugins: [
     // create an instance of the extract-text-webpack-plugin which will create the style.css file. this tells the style loader (above) where to put that text it extracted from the scss files after it finishes processing it.
     new ExtractTextPlugin("style.css"),
+    new HtmlWebpackPlugin({
+      template: 'index.html'
+    })
   ]
 }
